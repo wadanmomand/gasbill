@@ -4,6 +4,7 @@ import '../gas/gas_calculator.dart';
 import '../gas/tariffs.dart';
 import 'result_screen.dart';
 import 'history_screen.dart';
+import 'sources_dialog.dart';
 import 'theme.dart';
 import '../ads/ad_banner.dart';
 
@@ -61,6 +62,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(
         title: const Text('GAS BILL CALCULATOR'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'Sources & Disclaimer',
+            onPressed: () => showGasSourcesDialog(context),
+          ),
           IconButton(
             icon: const Icon(Icons.history),
             tooltip: 'History',

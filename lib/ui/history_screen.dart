@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../gas/saved_bill.dart';
 import '../gas/history_store.dart';
+import 'sources_dialog.dart';
 import 'theme.dart';
 import '../ads/ad_banner.dart';
 
@@ -39,6 +40,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
       appBar: AppBar(
         title: const Text('HISTORY'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'Sources & Disclaimer',
+            onPressed: () => showGasSourcesDialog(context),
+          ),
           if (_bills.isNotEmpty)
             IconButton(
               icon: const Icon(Icons.delete_sweep),

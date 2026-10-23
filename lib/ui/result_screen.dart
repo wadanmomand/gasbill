@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../gas/gas_calculator.dart';
 import '../gas/saved_bill.dart';
 import '../gas/history_store.dart';
+import 'sources_dialog.dart';
 import 'theme.dart';
 import '../ads/ad_banner.dart';
 
@@ -18,7 +19,16 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('BILL BREAKDOWN')),
+      appBar: AppBar(
+        title: const Text('BILL BREAKDOWN'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'Sources & Disclaimer',
+            onPressed: () => showGasSourcesDialog(context),
+          ),
+        ],
+      ),
       bottomNavigationBar: const AdBanner(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
